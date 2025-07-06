@@ -1,6 +1,43 @@
-@NimsGame_HostAddress = http://localhost:5262
+﻿@NimsGame_HostAddress = http://localhost:65149
 
-GET {{NimsGame_HostAddress}}/weatherforecast/
+### 🔍 Get Leaderboard
+GET {{NimsGame_HostAddress}}/api/leaderboard
+Accept: application/json
+
+###
+
+### 🔍 Get Specific Player by Name
+GET {{NimsGame_HostAddress}}/api/leaderboard/John
+Accept: application/json
+
+###
+
+### ✅ Add Win for a Player
+POST {{NimsGame_HostAddress}}/api/leaderboard/win
+Content-Type: application/json
+
+{
+  "name": "John",
+  "losingNumber": 30,
+  "maxSteps": 2
+}
+
+###
+
+### ❌ Add Loss for a Player
+POST {{NimsGame_HostAddress}}/api/leaderboard/loss
+Content-Type: application/json
+
+{
+  "name": "John",
+  "losingNumber": 30,
+  "maxSteps": 2
+}
+
+###
+
+### 🧠 Calculate Counting Game Strategy
+GET {{NimsGame_HostAddress}}/api/countinggame/calculate?N=30&M=2
 Accept: application/json
 
 ###
